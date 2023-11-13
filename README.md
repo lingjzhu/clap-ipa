@@ -1,1 +1,1 @@
-# clap-ipa
+# CLAP-IPA
