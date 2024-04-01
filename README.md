@@ -2,6 +2,8 @@
 We are gradually the data and code release. It might take some time. Thank you for your interest!
 
 ### Model
+To be updated
+
 
 ### IPA Pack
 All datasets are distributed as `wds` files on huggingface hub.   
