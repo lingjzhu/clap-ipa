@@ -1,5 +1,5 @@
 # CLAP-IPA
-We are gradually releasing the data and code. It might take some time. Thank you for your interest!
+We are gradually releasing the data and code. It might take some time. Thank you for your patience!
 
 ### Model
 To be updated
