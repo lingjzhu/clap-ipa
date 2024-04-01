@@ -1,6 +1,8 @@
 # CLAP-IPA
 We are gradually the data and code release. It might take some time. Thank you for your interest!
 
+### Model
+
 ### IPA Pack
 All datasets are distributed as `wds` files on huggingface hub. 
 **FLEURS-IPA**: https://huggingface.co/datasets/anyspeech/fleurs_ipa
@@ -9,7 +11,7 @@ All datasets are distributed as `wds` files on huggingface hub.
 
 After this study, we found that these datasets still contain inconsistent IPA symbols. **A cleaned version will be released when we finish another round of data cleaning**.
 
-To download these datasets:
+#### To download these datasets:
 ```
 from huggingface_hub import snapshot_download
 
@@ -17,7 +19,7 @@ snapshot_download(repo_id="anyspeech/fleurs_ipa", repo_type="dataset", local_dir
 
 ```
 
-To load webdataset files:
+#### To load webdataset files:
 ```
 import webdataset as wds  # Note the typical import shorthand
 dataset = (
