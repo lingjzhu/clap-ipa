@@ -11,7 +11,7 @@ All datasets are distributed as `wds` files on huggingface hub.
  - **MSWC-IPA**: https://huggingface.co/datasets/anyspeech/mswc_ipa
  - **DORECO-IPA**: https://huggingface.co/datasets/anyspeech/doreco_ipa
 
-After this study, we found that these datasets still contain inconsistent IPA symbols.  
+After this study, we found that these datasets still contain inconsistent unicode encoding of IPA symbols.  
 **A cleaner version will be released when we finish another round of data cleaning**.
 
 #### To download these datasets:
