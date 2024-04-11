@@ -14,6 +14,28 @@ pip install .
 
 #### Inference
 
+Both CLAP-IPA and the aligner can be loaded using the following code.
+```
+from clap.encoders import *
+
+speech_encoder = SpeechEncoder.from_pretrained('anyspeech/clap-ipa-tiny-speech')
+phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
+```
+
+For CLAP-IPA
+```
+import torch.nn.functional as F
+
+speech_embed = speech_encoder(some_audio)
+phone_embed = phone_encoder(ipa_string)
+
+similarity = F.cosine_similarity(speech_embed,phone_embed,dim=-1)
+```
+
+For IPA-Aligner
+```
+
+```
 
 #### Training
 For training, you can download data from HuggingFace hub. Then sample train/val filelists are available in `data/`. 
