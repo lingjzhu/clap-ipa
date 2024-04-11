@@ -19,7 +19,7 @@ python train.py -c config/clap_ipa/base.yaml
 ```
 
 #### Evaluation
-Evaluation code is available in `evaluate`. Each evalaute code has the same organization, so you can simply pass the `.ckpt` checkpoint after training to evaluate their performance. Please check the evalaution code for usage.
+Evaluation code is available in `evaluate`. Each evalaute code script has almost the same organization, so you can simply pass the `.ckpt` checkpoint after training to evaluate their performance. Please check the evalaution code for usage.
 ```
 python evaluate_fieldwork.py --data ucla --checkpoint "last.ckpt"
 ```
