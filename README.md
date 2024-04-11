@@ -3,6 +3,9 @@ Paper: [The taste of IPA: Towards open-vocabulary keyword spotting and forced al
    
 We are gradually releasing the data and code. It might take some time. Thank you for your patience!
 
+### Usage
+
+
 ### Pretrained Models
 
 | Model | Phone Encoder | Speech encoder |
