@@ -1,9 +1,9 @@
 # CLAP-IPA
-[Paper](https://arxiv.org/abs/2311.08323)
-
+Paper:
+ - [The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language](https://arxiv.org/abs/2311.08323) To appear in NAACL 2024.   
 We are gradually releasing the data and code. It might take some time. Thank you for your patience!
 
-### Model
+### Pretrained Models
 To be updated
 
 
