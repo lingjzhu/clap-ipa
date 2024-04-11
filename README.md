@@ -4,7 +4,15 @@ Paper: [The taste of IPA: Towards open-vocabulary keyword spotting and forced al
 We are gradually releasing the data and code. It might take some time. Thank you for your patience!
 
 ### Pretrained Models
-To be updated
+
+| Model | Phone Encoder | Speech encoder |
+|---|---|---|
+| CLAP-IPA-tiny | `anyspeech/clap-ipa-tiny-phone` | `anyspeech/clap-ipa-tiny-speech` |
+| CLAP-IPA-base | `anyspeech/clap-ipa-base-phone` | `anyspeech/clap-ipa-base-speech` |
+| CLAP-IPA-small | `anyspeech/clap-ipa-small-phone` | `anyspeech/clap-ipa-small-speech` |
+| IPA-Aligner-tiny | `anyspeech/ipa-align-tiny-phone` | `anyspeech/ipa-align-tiny-speech` |
+| IPA-Aligner-base | `anyspeech/ipa-align-base-phone` | `anyspeech/ipa-align-base-speech` |
+| IPA-Aligner-small | `IPA-anyspeech/ipa-align-small-phone` | `anyspeech/ipa-align-base-speech` |
 
 
 ### IPA Pack
