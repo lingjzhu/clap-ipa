@@ -1,0 +1,96 @@
+seed_everything: 6666
+
+data:
+  class_path: clap.data.DataModule
+  init_args:
+    train_params:
+      mode: max_size_cycle
+      fleurs: 
+          filelist_path: fleurs_list.txt
+          sampling_rate: 16000
+          max_length: 480000
+          batch_size: 16
+          num_workers: 4
+          use_hard_negatives: true
+          negative_prob: 0.1
+      mswc: 
+          filelist_path: mswc_list.txt
+          sampling_rate: 16000
+          max_length: 16000
+          batch_size: 128
+          num_workers: 4
+          use_hard_negatives: true
+          negative_prob: 0
+    val_params:
+      filelist_path: val_list.txt
+      sampling_rate: 16000
+      max_length: 16000
+      batch_size: 64
+      num_workers: 4
+    data_params:
+      tokenizer: charsiu/IPATokenizer
+      processor: openai/whisper-tiny
+      phoneset: phoneset.txt
+
+model:
+  class_path: clap.experiment.CLAPExp
+  init_args:
+    initial_lr: 0.0001
+    weight_decay: 0.01
+    num_warmup_steps: 500 
+    optimizer: adamw
+    hard_negatives: true
+    tokenizer: charsiu/IPATokenizer
+    processor: openai/whisper-tiny
+    zeroshot: true
+    phone_encoder_cfg:
+      name: anyspeech/PhoneBERT-small
+      vocab_size: 450
+      gradient_checkpointing: true
+      projection_size: 512
+      t_prime: 2.659260036932778
+      b: -10
+      pretrained: true
+      learnable_scale: false
+
+    speech_encoder_cfg:
+      name: openai/whisper-small
+      gradient_checkpointing: true
+      apply_spec_augment: true
+      pooling: mean
+      downsampled: false
+      projection_size: 512
+
+
+
+trainer:
+  logger:
+    class_path: lightning.pytorch.loggers.WandbLogger
+    init_args:
+      save_dir: /home/lingjzhu/scratch/logs
+      project: CLAP-IPA
+      name: small-pretrained-high-t-fixed
+  callbacks:
+    - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+    - class_path: lightning.pytorch.callbacks.ModelSummary
+      init_args:
+        max_depth: 2
+    - class_path: lightning.pytorch.callbacks.ModelCheckpoint
+      init_args:
+        monitor: val_loss
+        filename: clap_ipa_base_checkpoint_{epoch}_{step}_{val_loss:.4f}
+        save_top_k: 2
+        save_last: true
+
+  # Lightning calculates max_steps across all optimizer steps (rather than number of batches)
+  max_steps: 100000
+  # You might want to limit val batches when evaluating all the metrics, as they are time-consuming
+  limit_val_batches: 300
+  val_check_interval: 4000
+  accelerator: gpu
+  strategy: auto
+  devices: [0]
+  precision: 16-mixed
+  log_every_n_steps: 50
+  gradient_clip_val: 10
+  accumulate_grad_batches: 4

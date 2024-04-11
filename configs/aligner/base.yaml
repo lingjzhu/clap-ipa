@@ -1,0 +1,94 @@
+seed_everything: 6666
+
+data:
+  class_path: clap.segmentor_data.DataModule
+  init_args:
+    train_params:
+      mode: max_size_cycle
+      filelist_path: data/train.txt
+      sampling_rate: 16000
+      max_length: 480000
+      batch_size: 32
+      num_workers: 4
+      use_hard_negatives: true
+      negative_prob: 0.1
+    val_params:
+      filelist_path: data/seg_val_list.txt
+      sampling_rate: 16000
+      max_length: 480000
+      batch_size: 32
+      num_workers: 4
+      use_hard_negatives: true
+      negative_prob: 0.1
+    data_params:
+      tokenizer: charsiu/IPATokenizer
+      processor: openai/whisper-tiny
+      phoneset: phoneset.txt
+
+model:
+  class_path: clap.segmentor.SegmentExp
+  init_args:
+    initial_lr: 0.00005
+    weight_decay: 0.1
+    num_warmup_steps: 1000
+    optimizer: adamw
+    tokenizer: charsiu/IPATokenizer
+    processor: openai/whisper-tiny
+    zeroshot: true
+    temperature: 0.05
+    loss: 'fs'
+    use_contrastive_loss: false
+    phone_encoder_cfg:
+      name: anyspeech/ipa-base-phone
+      vocab_size: 450
+      gradient_checkpointing: true
+      projection_size: 512
+      t_prime: 2.659260036932778
+      b: -10
+      pretrained: true
+      learnable_scale: false
+
+    speech_encoder_cfg:
+      name: anyspeech/ipa-base-speech
+      gradient_checkpointing: true
+      apply_spec_augment: false
+      pooling: mean
+      downsampled: false
+      projection_size: 512
+
+
+
+trainer:
+  logger:
+    class_path: lightning.pytorch.loggers.WandbLogger
+    init_args:
+      save_dir: /scratch/lingjzhu_root/lingjzhu1/lingjzhu/logs
+      project: CLAP-IPA-SEG
+      name: base-forward
+  callbacks:
+    - class_path: lightning.pytorch.callbacks.LearningRateMonitor
+    - class_path: lightning.pytorch.callbacks.ModelSummary
+      init_args:
+        max_depth: 2
+    - class_path: lightning.pytorch.callbacks.ModelCheckpoint
+      init_args:
+        filename: clap_ipa_seg_checkpoint_{epoch}_{step}_{f1}
+        save_top_k: 4
+        save_last: true
+        monitor: f1
+        mode: 'max'
+        
+
+
+  # Lightning calculates max_steps across all optimizer steps (rather than number of batches)
+  max_steps: 10000
+  # You might want to limit val batches when evaluating all the metrics, as they are time-consuming
+  limit_val_batches: 10
+  val_check_interval: 200
+  accelerator: gpu
+  strategy: auto
+  devices: [0]
+  precision: 16-mixed
+  log_every_n_steps: 5
+  gradient_clip_val: 10
+  accumulate_grad_batches: 4

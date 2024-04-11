@@ -1,0 +1,10 @@
+lightning
+transformers
+datasets
+tokenizers
+webdataset
+lingpy
+librosa
+torchmetrics
+sentencepiece
+ipatok
