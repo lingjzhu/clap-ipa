@@ -12,6 +12,9 @@ cd clap-ipa
 pip install .
 ```
 
+#### Inference
+
+
 #### Training
 For training, you can download data from HuggingFace hub. Then sample train/val filelists are available in `data/`. 
 ```
