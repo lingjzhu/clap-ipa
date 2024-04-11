@@ -5,6 +5,13 @@ We are gradually releasing the data and code. Thank you for your patience.
 
 ### Usage
 
+#### Install
+```
+git clone https://github.com/lingjzhu/clap-ipa
+cd clap-ipa
+pip install .
+```
+
 #### Training
 ```
 python train.py -c config/clap_ipa/base.yaml
