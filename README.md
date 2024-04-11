@@ -14,17 +14,13 @@ pip install .
 
 #### Inference
 
-Both CLAP-IPA and the aligner can be loaded using the following code.
+For CLAP-IPA
 ```
 from clap.encoders import *
+import torch.nn.functional as F
 
 speech_encoder = SpeechEncoder.from_pretrained('anyspeech/clap-ipa-tiny-speech')
 phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
-```
-
-For CLAP-IPA
-```
-import torch.nn.functional as F
 
 speech_embed = speech_encoder(some_audio)
 phone_embed = phone_encoder(ipa_string)
@@ -34,7 +30,11 @@ similarity = F.cosine_similarity(speech_embed,phone_embed,dim=-1)
 
 For IPA-Aligner
 ```
+from clap.encoders import *
+import torch.nn.functional as F
 
+speech_encoder = SpeechEncoder.from_pretrained('anyspeech/clap-ipa-tiny-speech')
+phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
 ```
 
 #### Training
