@@ -12,7 +12,7 @@ We are gradually releasing the data and code. It might take some time. Thank you
 | CLAP-IPA-small | `anyspeech/clap-ipa-small-phone` | `anyspeech/clap-ipa-small-speech` |
 | IPA-Aligner-tiny | `anyspeech/ipa-align-tiny-phone` | `anyspeech/ipa-align-tiny-speech` |
 | IPA-Aligner-base | `anyspeech/ipa-align-base-phone` | `anyspeech/ipa-align-base-speech` |
-| IPA-Aligner-small | `IPA-anyspeech/ipa-align-small-phone` | `anyspeech/ipa-align-base-speech` |
+| IPA-Aligner-small | `anyspeech/ipa-align-small-phone` | `anyspeech/ipa-align-base-speech` |
 
 
 ### IPA Pack
