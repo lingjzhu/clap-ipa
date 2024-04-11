@@ -1,0 +1,5 @@
+/home/lingjzhu/scratch/mswc_wds/mswc-dev-000002.tar
+/home/lingjzhu/scratch/mswc_wds/mswc-dev-000001.tar
+/home/lingjzhu/scratch/mswc_wds/mswc-dev-000003.tar
+/home/lingjzhu/scratch/mswc_wds/mswc-dev-000000.tar
+/home/lingjzhu/scratch/mswc_wds/mswc-dev-000004.tar
