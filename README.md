@@ -5,6 +5,10 @@ We are gradually releasing the data and code. Thank you for your patience.
 
 ### Usage
 
+#### Training
+```
+python train.py -c config/clap_ipa/base.yaml
+```
 
 ### Pretrained Models
 
