@@ -19,11 +19,16 @@ For CLAP-IPA
 from clap.encoders import *
 import torch.nn.functional as F
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 speech_encoder = SpeechEncoder.from_pretrained('anyspeech/clap-ipa-tiny-speech')
 phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
+phone_encoder.eval().to(device)
+speech_encoder.eval().to(device)
 
-speech_embed = speech_encoder(some_audio)
-phone_embed = phone_encoder(ipa_string)
+with torch.no_grad():
+   speech_embed = speech_encoder(some_audio)
+   phone_embed = phone_encoder(ipa_string)
 
 similarity = F.cosine_similarity(speech_embed,phone_embed,dim=-1)
 ```
@@ -33,9 +38,16 @@ For IPA-Aligner
 from clap.encoders import *
 import torch.nn.functional as F
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 speech_encoder = SpeechEncoder.from_pretrained('anyspeech/clap-ipa-tiny-speech')
 phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
+
+phone_encoder.eval().to(device)
+speech_encoder.eval().to(device)
 ```
+Forced-alignment code is in `evaluate/eval_boundary.py`. This aligner will be incorported into [charsiu](https://github.com/lingjzhu/charsiu) in coming months.
+
 
 #### Training
 For training, you can download data from HuggingFace hub. Then sample train/val filelists are available in `data/`. 
