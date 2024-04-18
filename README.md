@@ -27,6 +27,9 @@ phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
 phone_encoder.eval().to(device)
 speech_encoder.eval().to(device)
 
+tokenizer = DebertaV2Tokenizer.from_pretrained('charsiu/IPATokenizer')
+processor = AutoProcessor.from_pretrained('openai/whisper-tiny')
+
 audio_input = processor(some_audio)
 ipa_input = tokenizer(some_ipa_string)
 
