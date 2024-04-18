@@ -18,6 +18,7 @@ For CLAP-IPA
 ```
 from clap.encoders import *
 import torch.nn.functional as F
+from transformers import DebertaV2Tokenizer, AutoProcessor
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -26,9 +27,12 @@ phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
 phone_encoder.eval().to(device)
 speech_encoder.eval().to(device)
 
+audio_input = processor(some_audio)
+ipa_input = tokenizer(some_ipa_string)
+
 with torch.no_grad():
-   speech_embed = speech_encoder(some_audio)
-   phone_embed = phone_encoder(ipa_string)
+   speech_embed = speech_encoder(audio_input)
+   phone_embed = phone_encoder(ipa_input)
 
 similarity = F.cosine_similarity(speech_embed,phone_embed,dim=-1)
 ```
