@@ -1,5 +1,5 @@
 # CLAP-IPA
-[The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language](https://arxiv.org/abs/2311.08323) To appear in NAACL 2024.   
+[The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language]([https://arxiv.org/abs/2311.08323](https://aclanthology.org/2024.naacl-long.43/). NAACL 2024.   
    
 We are gradually releasing the data and code. Thank you for your patience.
 
@@ -106,4 +106,9 @@ dataset = (
       .shuffle(size=1000)  # Shuffle on-the-fly in a buffer
       .batch(batchsize=10)  # Create batches
 )
+```
+
+### Citation
+```
+Jian Zhu, Changbing Yang, Farhan Samir, and Jahurul Islam. 2024. The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language. In Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers), pages 750–772, Mexico City, Mexico. Association for Computational Linguistics.
 ```
