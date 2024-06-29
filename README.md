@@ -1,5 +1,5 @@
 # CLAP-IPA
-[The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language]([https://arxiv.org/abs/2311.08323](https://aclanthology.org/2024.naacl-long.43/). NAACL 2024.   
+[The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language](https://aclanthology.org/2024.naacl-long.43). NAACL 2024.   
    
 We are gradually releasing the data and code. Thank you for your patience.
 
