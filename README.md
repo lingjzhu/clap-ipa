@@ -110,5 +110,8 @@ dataset = (
 
 ### Citation
 ```
-Jian Zhu, Changbing Yang, Farhan Samir, and Jahurul Islam. 2024. The taste of IPA: Towards open-vocabulary keyword spotting and forced alignment in any language. In Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers), pages 750–772, Mexico City, Mexico. Association for Computational Linguistics.
+Jian Zhu, Changbing Yang, Farhan Samir, and Jahurul Islam. 2024. The taste of IPA: Towards open-vocabulary keyword 
+  spotting and forced alignment in any language. In Proceedings of the 2024 Conference of the North American  
+ Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers),  
+ pages 750–772, Mexico City, Mexico. Association for Computational Linguistics.
 ```
