@@ -3,6 +3,8 @@
    
 ### Usage
 
+See `example.ipynb` for a comprehensive example. 
+
 #### Install
 ```
 git clone https://github.com/lingjzhu/clap-ipa
