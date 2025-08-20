@@ -3,7 +3,7 @@
    
 ### Usage
 
-See `example.ipynb` for a comprehensive example. 
+See `kws_example.ipynb` and `forced_alignment_example.ipynb`  for a comprehensive example. 
 
 #### Install
 ```
@@ -40,20 +40,9 @@ with torch.no_grad():
 similarity = F.cosine_similarity(speech_embed,phone_embed,dim=-1)
 ```
 
-For IPA-Aligner
-```
-from clap.encoders import *
-import torch.nn.functional as F
+For IPA-Aligner, the example usage is in `forced_alignment_example.ipynb`.
+The full forced-alignment evaluation code is in `evaluate/eval_boundary.py`. 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-speech_encoder = SpeechEncoder.from_pretrained('anyspeech/clap-ipa-tiny-speech')
-phone_encoder = PhoneEncoder.from_pretrained('anyspeech/clap-ipa-tiny-phone')
-
-phone_encoder.eval().to(device)
-speech_encoder.eval().to(device)
-```
-Forced-alignment code is in `evaluate/eval_boundary.py`. This aligner will be incorported into [charsiu](https://github.com/lingjzhu/charsiu) in coming months.
 
 
 #### Training
