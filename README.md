@@ -77,6 +77,7 @@ All datasets are distributed as `wds` files on huggingface hub.
 
 After this study, we found that these datasets still contain inconsistent unicode encoding of IPA symbols.  
 **A cleaner version will be released when we finish another round of data cleaning**.
+The clean data (~1.8TB) and the models trained on clean data are available at: [https://github.com/lingjzhu/zipa](https://github.com/lingjzhu/zipa)
 
 #### To download these datasets:
 ```python
