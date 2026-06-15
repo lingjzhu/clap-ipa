@@ -58,7 +58,7 @@ python evaluate_fieldwork.py --data ucla --checkpoint "last.ckpt"
 ```
 
 ### Pretrained Models
-
+Weights are released under [MIT License](https://github.com/lingjzhu/clap-ipa?tab=MIT-1-ov-file#MIT-1-ov-file).
 | Model | Phone Encoder | Speech encoder |
 |---|---|---|
 | CLAP-IPA-tiny | `anyspeech/clap-ipa-tiny-phone` | `anyspeech/clap-ipa-tiny-speech` |
